@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Technical questions</title>
+</head>
+
+<body>
+    <script>
+        //------(1.)Reverse a string------>
+        //-------if name is not given--->
+        function reverseString(str) {
+            const strRev = str.split('').reverse().join('');
+            console.log(strRev);
+        }
+        reverseString("MoM");
+
+        //---if name is given---->
+        const user = "Good morning";
+        const Name = user.split('').reverse().join('');
+        console.log(Name);
+
+        //----using for loop--->
+        var str = "Morning";
+        var strRev = "";
+        for (let i = str.length - 1; i >= 0; i--) {
+            console.log(str);
+            strRev += str[i];
+        }
+        console.log(strRev);
+
+        var str = "Evening";
+        var strRev = "";
+        console.log(str.length);
+        for (let i = 1; i <= str.length; i++) {
+            console.log(i);
+            strRev += str[str.length - i];
+        }
+        console.log(strRev);
+
+        var carName = "Honda";
+        var Rev = "";
+        console.log(carName.length);
+        for (let i = 1; i <= carName.length; i++) {
+            console.log(i);
+            Rev += carName[carName.length - i];
+        }
+        console.log(Rev);
+
+
+        var greet = "Hi Hello";
+        var Reversed = "";
+        console.log(greet.length);
+        for (let i = 6; i <= greet.length; i++) {
+            console.log(i);
+            Reversed += greet[greet.length - i];
+        }
+        console.log(Reversed);
+
+        //----(2.)palindrome ---->
+        var users = "mom";
+        var palind = "";
+        for (let i = 1; i <= users.length; i++) {
+            palind += users[users.length - i];
+        }
+        if (users === palind) {
+            console.log("This is palindrome, the given value is " + palind);
+        }
+        else {
+            console.log("This is not palindrome");
+        }
+
+        //----(3.)Find the largest number in a array--->
+        const list = [11, 22, 33, 44, 56, 100, 65, 73, 88, 94];
+        let max = list[0];
+        for (let i = 1; i < list.length; i++) {
+            if (list[i] > max) {
+                //to clear that whats happening
+                console.log("max" + max);
+                console.log(list[i]);
+
+                max = list[i];
+
+            }
+        }
+        console.log("the largest number is " + max);
+
+        //----(4.)Occurance of a word
+        var spelling = "Venkatesh";
+        for (let i = 0; i <= spelling.length; i++) {
+            console.log(spelling[i]);
+        }
+
+        var nums = [12, 23, 99, 44, 35, 67, 123, 121];
+        var maximum = nums[0];
+        for (let i = 1; i < nums.length; i++) {
+            if (max < nums[i]) {
+                max = nums[i]
+            }
+        }
+        console.log(max);
+
+
+        //----(5.)Fibonacci sequence----->
+        function fibbi(num) {
+            let num1 = 0;
+            let num2 = 1;
+            let sum;
+            let fib = [num1, num2];
+            for (let i = 2; i < num; i++) {
+                sum = num1 + num2;
+                num1 = num2;
+                num2 = sum;
+                fib.push(sum);
+
+            }
+            return fib;
+        }
+        console.log(fibbi(10));
+
+        //---(6.)count vowels in a string-->
+        function getvowels(str) {
+            let vowels = 'aAeEiIoOuU';
+            let vowelscount = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (vowels.indexOf(str[i]) !== -1) {
+                    vowelscount += 1;
+                }
+            }
+            return vowelscount;
+        }
+        console.log(getvowels('venkatesh'));
+
+        // ---how many vowels count them
+        function countVowels(string) {
+            const vowels = "aeiou";
+            const vowelscounting = { a: 0, e: 0, i: 0, o: 0, u: 0 };
+            for (let i = 0; i < string.length; i++) {
+                const char = string[i];
+                if (vowels.includes(char)) {
+                    vowelscounting[char] += 1;
+                }
+            }
+            return vowelscounting;
+        }
+        console.log(countVowels('kavya venkat selvi anu'));
+
+
+        //(7.)sort an array of string by length
+        const chars = ['vic','jnjj','yjghj','ahg','hh'];
+        chars.sort((a,b) => a.length - b.length);
+        console.log(chars);
+        //---->merged two sorted arrays
+        const ara =[7,5,3,1];
+        const brr =[2,9,6,4];
+        const crr = ara.concat(brr);
+        console.log(crr);
+        crr.sort((a,b)=>a-b);
+        console.log(crr);
+
+
+        //---(8.)counting duplicates in an array
+        const arr = [1,1,1,2,3,3,4,4,4,5,6,6,6];
+        const counts = {};
+        var finalRes = [];
+        var duplicates = [];
+        for(let i = 0;i<arr.length;i++){
+            const num = arr[i];
+            console.log("front"+arr[i],counts);
+            if(counts[num]){ 
+                counts[num] += 1;
+                if(duplicates.indexOf(num) == -1){
+                   // if(!duplicates.includes(num)){
+                    duplicates.push(num);
+                    // }
+                }
+                // if(arr.indexOf(arr[i])!==1){
+                //     if(!duplicates.includes(arr[i])){
+                //         duplicates.push(arr[i]);
+                //     }
+                    
+                // }
+            }
+            else{
+                finalRes.push(arr[i]);
+                counts[num] = 1;
+            }
+            console.log("back"+arr[i],counts);
+        }
+        
+        console.log(counts);
+        console.log(finalRes);
+        console.log("dup"+duplicates);
+        const array = ['orange','apple','banana','orange','apple','orange','apple'];
+        const countings = {};
+        for(let i = 0;i<array.length;i++){
+            const nums = array[i];
+            if(countings[nums]){
+                countings[nums] += 1;
+                
+            }
+            else{
+                countings[nums] = 1;
+            }
+           
+        }
+        console.log(countings);
+
+        //-->first non repeating char-->
+        let value = "good";
+        let res = null;
+        for(let char of value){
+            if(value.indexOf(char) === value.lastIndexOf(char)){
+                res = char;
+                break;
+            }
+        }
+        console.log(res);
+       
+        
+    </script>
+
+</body>
+
+</html>
